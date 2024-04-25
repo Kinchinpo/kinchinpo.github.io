@@ -1,0 +1,19 @@
+body {
+  color: #eee;
+  background: #121212;
+}
+body a {
+  color: #809fff;
+}
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+}
