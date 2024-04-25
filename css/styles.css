@@ -1,6 +1,6 @@
 .navbar-brand
 {
-    margin-left: 100px;
+    margin-left: 5px;
 }
 
 .navbar-nav .nav-item {
@@ -20,7 +20,7 @@
 
 .nav-item:last-child
 {
-    margin-right: 100px;
+    margin-right: 5px;
 }
 
 /* .navbar {
