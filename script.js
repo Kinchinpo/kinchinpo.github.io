@@ -158,7 +158,7 @@ function setupKeyboard() {
         document.querySelectorAll(".key").forEach(btn => {
             btn.style.backgroundColor = "#F8C8DC";
             btn.style.color = "#F8C8DC"; // Remove text
-            btn.onclick = moveToNextSection; 
+            btn.onclick = moveToNextSection;
         });
 
         // Change the game board to pink and clear text

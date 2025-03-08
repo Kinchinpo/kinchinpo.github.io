@@ -320,7 +320,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh; /* Full screen height */
-    text-align: center;
+    /* text-align: center; */
 }
 
 /* Fade out animation for the first section */
