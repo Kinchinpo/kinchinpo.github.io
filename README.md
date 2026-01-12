@@ -1,1 +1,0 @@
-# kinchinpo.github.io
