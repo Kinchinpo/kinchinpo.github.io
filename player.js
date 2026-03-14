@@ -94,7 +94,7 @@ export function updatePlayer() {
             player.y + player.height >= s.y && 
             player.y + player.height <= s.y + s.height + player.vy) {
             
-            player.vy = -10; 
+            player.vy = -15; 
             player.grounded = false;
             player.canDash = true; 
             player.dashLocked = false;
