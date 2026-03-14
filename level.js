@@ -514,7 +514,7 @@ export function updateLevelLogic(player) {
                 player.width = 0;
                 player.height = 0;
                 // 3. Đặt nhân vật đứng yên giữa màn hình (an toàn, không kích hoạt chuyển map)
-                player.x = CANVAS_WIDTH / 2 - 5;
+                player.x = CANVAS_WIDTH / 2 - 10;
                 player.y = CANVAS_HEIGHT / 2;
             }
         }
@@ -787,7 +787,7 @@ export function drawUI(index, offsetX = 0, offsetY = 0) {
 
         if (level8Event.showPaper) {
             // Hiển thị tờ giấy căn giữa Canvas
-            const paperWidth = 560; // Nới rộng giấy ra một chút cho vừa text
+            const paperWidth = 650; // Nới rộng giấy ra một chút cho vừa text
             const paperHeight = 280;
             const paperX = (CANVAS_WIDTH - paperWidth) / 2 + offsetX;
             const paperY = (CANVAS_HEIGHT - paperHeight) / 2 + offsetY;
@@ -804,7 +804,7 @@ export function drawUI(index, offsetX = 0, offsetY = 0) {
             ctx.font = "bold 18px 'Courier New', Courier, monospace";
             ctx.textAlign = "left"; // Căn lề trái
 
-            const message = "I'm really glad we are here!\nIt's been a tough journey, but we made it.\nHowever, there is something special\nabout the journey we've been through.\nHave you realized it yet?";
+            const message = "I'm really glad we are here!\nIt's been a tough journey, but we made it.\nThank you for walking this path with me to the very end.\nHowever, there is something special\nabout the journey we've been through.\nHave you realized it yet?";
             
             const lines = message.split('\n');
             const paddingLeft = paperX + 30; // Cách lề trái 30px
@@ -819,7 +819,27 @@ export function drawUI(index, offsetX = 0, offsetY = 0) {
             ctx.textAlign = "center";
             ctx.font = "italic 16px 'Courier New', Courier, monospace";
             ctx.fillStyle = '#777';
-            ctx.fillText("[Press C to close]", paperX + paperWidth / 2, paperY + paperHeight - 25);        
+            ctx.fillText("[Press C to close]", paperX + paperWidth / 2, paperY + paperHeight - 25);   
+            
+            ctx.save();
+            // Căn vị trí ở góc dưới phải (cách mép 35px)
+            ctx.translate(paperX + paperWidth - 55, paperY + paperHeight - 75);
+            // Xoay trái tim nghiêng một chút (khoảng 20 độ)
+            ctx.rotate(Math.PI / 9); 
+            ctx.fillStyle = "#ff3366"; // Màu hồng/đỏ
+            
+            ctx.beginPath();
+            let hw = 50; // Chiều rộng trái tim nhỏ
+            let hh = 50; // Chiều cao trái tim nhỏ
+            ctx.moveTo(0, hh / 4);
+            ctx.quadraticCurveTo(0, 0, -hw / 4, 0);
+            ctx.quadraticCurveTo(-hw / 2, 0, -hw / 2, hh / 4);
+            ctx.quadraticCurveTo(-hw / 2, hh / 2, 0, hh);
+            ctx.quadraticCurveTo(hw / 2, hh / 2, hw / 2, hh / 4);
+            ctx.quadraticCurveTo(hw / 2, 0, hw / 4, 0);
+            ctx.quadraticCurveTo(0, 0, 0, hh / 4);
+            ctx.fill();
+            ctx.restore();
         }
 
         // --- PHẦN VẼ RECORD VÀ KẾT THÚC ---
