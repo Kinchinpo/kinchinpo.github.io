@@ -5,13 +5,16 @@ export const keys = {
 };
 
 window.addEventListener('keydown', (e) => {
-    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyC','KeyX','KeyZ'].includes(e.code)) {
+    // Thêm các phím I, K, J, L vào danh sách chặn cuộn trang trình duyệt
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyC','KeyX','KeyZ','KeyI','KeyK','KeyJ','KeyL'].includes(e.code)) {
         e.preventDefault(); 
     }
-    if(e.code === 'ArrowRight') keys.right = true;
-    if(e.code === 'ArrowLeft') keys.left = true;
-    if(e.code === 'ArrowUp') keys.up = true;
-    if(e.code === 'ArrowDown') keys.down = true;
+    
+    // Áp dụng nhận diện song song: Mũi tên HOẶC phím chữ
+    if(e.code === 'ArrowRight' || e.code === 'KeyL') keys.right = true;
+    if(e.code === 'ArrowLeft'  || e.code === 'KeyJ') keys.left = true;
+    if(e.code === 'ArrowUp'    || e.code === 'KeyI') keys.up = true;
+    if(e.code === 'ArrowDown'  || e.code === 'KeyK') keys.down = true;
     
     if(e.code === 'KeyC' && !keys.jump) {
         keys.jump = true;
@@ -22,10 +25,12 @@ window.addEventListener('keydown', (e) => {
 });
 
 window.addEventListener('keyup', (e) => {
-    if(e.code === 'ArrowRight') keys.right = false;
-    if(e.code === 'ArrowLeft') keys.left = false;
-    if(e.code === 'ArrowUp') keys.up = false;
-    if(e.code === 'ArrowDown') keys.down = false;
+    // Tương tự khi nhả phím
+    if(e.code === 'ArrowRight' || e.code === 'KeyL') keys.right = false;
+    if(e.code === 'ArrowLeft'  || e.code === 'KeyJ') keys.left = false;
+    if(e.code === 'ArrowUp'    || e.code === 'KeyI') keys.up = false;
+    if(e.code === 'ArrowDown'  || e.code === 'KeyK') keys.down = false;
+    
     if(e.code === 'KeyC') keys.jump = false;
     if(e.code === 'KeyX') keys.dash = false;
     if(e.code === 'KeyZ') keys.grab = false; // Nhả phím Z
